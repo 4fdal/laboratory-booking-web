@@ -1,0 +1,78 @@
+database desain unand_lab_pertanian
+
+user
+    - role_id
+    - email
+    - password
+    - is_active
+
+role
+    - name [admin or head_of_lab|lab_technicial|college_student|another_borrower]
+    - display_name
+
+profile_lab_technicial
+    - nip
+    - address
+
+profile_head_of_lab
+    - nip
+    - address
+
+profile_college_student
+    - nim
+    - college_student_card_photo
+    - address
+
+profile_another_borrower
+    - nik
+    - ktp_photo
+    - address
+
+labor
+    - photo
+    - name
+    - lat
+    - lng
+    - borrowing_price => borrowing_price_per_day
+    - schedule_start_enter_labor (time)
+    - description
+    - active_status
+    + max_borrow_day
+
+labor_facilities
+    - labor_id
+    - photo
+    - name
+    - description
+
+booking_schedule
+    - user_id
+    + judul
+    - labor_id
+    - datetime_start_ordering
+    - datetime_end_ordering
+    - schedule_approval
+
++ detail_bookiing_schedule
+    - user_id
+    - booking_schedule_id
+    - tool_name
+    - usage_description
+	
+
+payment
+    + booking_schedule_id
+    + labor_id
+    - user_id
+    - amount
+    - midtrans_response
+    - status
+
+config
+    - key
+    - value
+
+
+
+
+
